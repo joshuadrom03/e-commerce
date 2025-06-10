@@ -1,7 +1,7 @@
 import "../css/shop.css"
 import { useEffect, useState } from "react"
 
-const Products = () => {
+const FetchItems = () => {
     const [items, setItems] = useState([])
 
     useEffect(() => {
@@ -15,27 +15,8 @@ const Products = () => {
 
     }, [])
 
-    return (
-        <>
-        {console.log(items)}
-        {items.map((item) => (
-            <div className="card"
-            key={item.id}>
-                <div className="card-image">
-                <img src= {item.image} className="item-img"></img>
-                 </div>
-                <div className="item-description">
-                    <p>Title: {item.title}</p>
-                    <p>Categroy: {item.category}</p>
-                    <p>Price: {item.price}</p>
-                    <button className="add-to-cart-btn">Add To Cart</button>
-                </div>
-            </div>
-        ))}
-        
-        </>
-    )
+    return { items}
 }
 
 
-export default Products
+export default FetchItems

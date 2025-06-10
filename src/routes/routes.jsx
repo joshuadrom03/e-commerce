@@ -5,6 +5,7 @@ import { ErrorPage } from "../pages/errorPage";
 import { Navbar } from "../components/navbar";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "../css/index.css"
+import { CartProvider } from "../hooks/cartContext";
 
 const Layout = () =>(
     <>
@@ -33,7 +34,12 @@ const router = createBrowserRouter([
 ])
 
 const App = () =>{
-    return <RouterProvider router={router} />
+    return (
+        <CartProvider>
+             <RouterProvider router={router} />
+        </CartProvider>
+    )
+
 }
 
 export default App;
