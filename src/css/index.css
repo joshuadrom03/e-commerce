@@ -6,10 +6,16 @@
   background-color:rgb(243, 242, 242);
   font-family: 'Roboto', sans-serif;
   padding: 0 auto;
+  margin: 0 auto;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
   

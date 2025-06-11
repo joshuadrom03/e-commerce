@@ -5,20 +5,26 @@
     background: #09090b;
     color: white;
     box-shadow: 3px 2px 3px #18181b;
-    width:97%;
-    gap: 15vw;
+    width:98%;
+    gap: 5vw;
     padding: 30px;
     font-size: 24px;
     margin: 0 auto;
+    top: 0;
     
 }
 
 li{
     list-style-type: none;
+    margin-right: 10vw;
     
 }
 
 a{
     text-decoration: none; /* removes underline */
     color: inherit; /* optional: makes the link inherit text color */
+}
+
+a:hover{
+    color: rgb(245 158 11);
 }

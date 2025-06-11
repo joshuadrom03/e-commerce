@@ -1,16 +1,32 @@
 import { useCart } from "../hooks/cartContext";
 import "../css/cart.css"
+import { useEffect, useState } from "react";
 
-//if item title too long it looks weird fix it
+//make total round of to 2 decimal places
+
 
 export function Cart(){
 
-    const {cart} = useCart();
-    console.log(cart)
+    const [totalPrice, setTotalPrice] = useState(0)
+    const {cart, setCart} = useCart();
+
+    useEffect(() => {
+        const total = cart.reduce((sum, item) => sum + item.price, 0)
+        setTotalPrice(total)
+    }, [cart])
+
+    const removeItem = (itemId) => {
+        const newCart = cart.filter((item) => item.id !== itemId);
+        setCart(newCart)
+        console.log(cart)
+    }
+
     return (
         <div className="cart-container">
-            
-           <div className="cart-heading">Cart {cart.length}</div>
+           <div className="cart-heading">
+            Cart {cart.length}
+           </div>
+           <div>
            {cart.map((item) => (
                 <div className="cart-card" key={item.id}>
                 <div className="card-image">
@@ -20,11 +36,13 @@ export function Cart(){
                     <p>{item.title}</p>
                     <p className="price"> ${item.price}</p>
                 </div>
-
-                <button className="remove-cart">X</button>
+                <button className="remove-cart" onClick={() => {removeItem(item.id)}}>X</button>
                 </div>  
            ))}
-          
+           </div>
+           <div className="total-section">
+                Total: ${totalPrice.toFixed(2)}
+           </div>
         </div>
     )
 }

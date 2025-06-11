@@ -22,7 +22,7 @@
     width: 100%;
     font-size: 24px;
     box-shadow: 2px 2px gray;
-    margin-bottom: 1vh;
+    
 }
 
 
@@ -30,14 +30,12 @@
     background-color: aliceblue;
     display: flex;
     align-items: center;
-    margin-top: 15px;
     padding: 10px;
     width: 100%;
     justify-content: center;
     gap: 50px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
     box-shadow: 2px 2px 2px gray;
+    border-bottom: 1px solid gray;
 }
 
 .cart-card:hover{
@@ -49,12 +47,13 @@
     display: flex;
     max-width: 200px;
     overflow-y: auto;
+    
 }
 
 .cart-img{
     width: 3vw;
     height: 5vh;
-    border: 1px solid gray;
+    box-shadow: 2px 2px 2px gray;
     border-radius: 10px;
 }
 
@@ -71,4 +70,15 @@
 .remove-cart:hover{
     cursor: pointer;
     color: red;
+}
+
+.total-section{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 2px 2px 2px gray;
+    font-size: 20px;
 }
