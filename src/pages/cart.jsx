@@ -2,7 +2,13 @@ import { useCart } from "../hooks/cartContext";
 import "../css/cart.css"
 import { useEffect, useState } from "react";
 
-//make total round of to 2 decimal places
+/*
+    style purchase and clear buttons
+    create homePage
+    create errorPage
+    create purchase page
+    create loading page for shop
+*/
 
 
 export function Cart(){
@@ -19,6 +25,10 @@ export function Cart(){
         const newCart = cart.filter((item) => item.id !== itemId);
         setCart(newCart)
         console.log(cart)
+    }
+
+    const removeAllItems = () =>{
+        setCart([]);
     }
 
     return (
@@ -42,6 +52,8 @@ export function Cart(){
            </div>
            <div className="total-section">
                 Total: ${totalPrice.toFixed(2)}
+                <button className="purchase-cart">Purchase</button>
+                <button className="clear-cart" onClick={()=> {removeAllItems()}}>Clear cart</button>
            </div>
         </div>
     )

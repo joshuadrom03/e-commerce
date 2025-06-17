@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 const FetchItems = () => {
     const [items, setItems] = useState([])
+    const [load,setLoad] = useState(true)
 
     useEffect(() => {
         
@@ -10,12 +11,14 @@ const FetchItems = () => {
             .then(res=>res.json())
             .then(res => {
                 setItems(res);
+                setLoad(false)
             })
-            .catch((error) => console.error("Error fetching data:", error));
+            .catch((error) => console.error("Error fetching data:", error))
+            .finally(() => setLoad(false))
 
     }, [])
 
-    return { items}
+    return { items,load}
 }
 
 

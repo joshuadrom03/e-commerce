@@ -1,5 +1,6 @@
 .shop-container{
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(5, 17%);
     justify-content: center;
     margin-top: 4vh;

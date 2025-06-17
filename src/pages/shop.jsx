@@ -2,18 +2,24 @@
 import "../css/shop.css"
 import { useCart } from "../hooks/cartContext"
 import FetchItems from "../hooks/fetchItems"
+import Load from "./load"
 
+//create loading page if load is set to false
 
 export function Shop(){
-    const {items} = FetchItems()
+    const {items, load} = FetchItems()
     const {setCart} = useCart();
+
      const addToCart = (item) => {
       setCart((prevCart) => [...prevCart, item]);
     }
    
     return(
         <div className="shop-container">
-        {items.map((item) => (
+            {load ? (
+                <Load />
+            ) : (
+        items.map((item) => (
             <div className="card"
             key={item.id}>
                 <div className="card-image">
@@ -30,7 +36,8 @@ export function Shop(){
                     >+ Add To Cart</button>
                 </div>
             </div>
-        ))}
+        ))
+    )}
         </div>
     )
 }
